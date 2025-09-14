@@ -1,13 +1,25 @@
+import re
 import spacy
 from pathlib import Path
 
-# Load spaCy model
+# Initialize a spaCy language model for natural language processing (NLP)
 nlp = spacy.load("en_core_web_sm")
+
+def clean_text(text: str) -> str:
+    # Remove punctuation and non-letters, keep only letters + spaces
+    cleaned = re.sub(r"[^A-Za-z\s]", "", text)
+
+    # Normalize multiple spaces
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+
+    return cleaned
 
 def preprocess_text(file_path: str) -> dict:
     """Read and preprocess a text file, extracting tokens and entities."""
     # Read file
-    text = Path(file_path).read_text(encoding="utf-8").strip()
+    raw_text = Path(file_path).read_text(encoding="utf-8").strip()
+
+    text = clean_text(raw_text)
 
     # Process with spaCy
     doc = nlp(text)
