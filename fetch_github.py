@@ -1,7 +1,7 @@
 import requests
 import spacy
 import base64
-from config import GITHUB_TOKEN, GITHUB_USERNAME  # Adjust if using env vars
+from config import GITHUB_TOKEN, GITHUB_USERNAME
 
 # Load spaCy model
 nlp = spacy.load("en_core_web_sm")

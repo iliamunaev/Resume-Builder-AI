@@ -1,0 +1,90 @@
+[
+  [
+    "vacancy",
+    "Software Developer Trainee"
+  ],
+  [
+    "vacancy",
+    "Join Ericsson\u2019s Distributed Cloud team as a Software Developer Trainee to help build the Cloud Container Distribution that powers 5G core and Cloud RAN, contributing to real product features with a strong focus on AI/LLM and agentic workflows integrated with a modern cloud-native stack. Hands-on exposure to Kubernetes, cloud networking, and production-grade environment..."
+  ],
+  [
+    "vacancy",
+    "[full text from your vacancy.txt]"
+  ],
+  [
+    "user_bio",
+    "John Doe | Software Developer Trainee"
+  ],
+  [
+    "user_bio",
+    "Python | C/C++ | Generative AI | Agentic AI"
+  ],
+  [
+    "user_bio",
+    "+777 00 00 00 | johndoe@gmail.com"
+  ],
+  [
+    "user_bio",
+    "LinkedIn: linkedin.com/in/johndoe | GitHub: github.com/johndoe"
+  ],
+  [
+    "user_bio",
+    "Location: Helsinki, Finland"
+  ],
+  [
+    "user_bio",
+    "Skills"
+  ],
+  [
+    "user_bio",
+    "\tProgramming: Python, FastAPI, C/C++, idiomatic microservices..."
+  ],
+  [
+    "user_bio",
+    "[full text from your user_bio.txt]"
+  ],
+  [
+    "github_profile",
+    "Software engineer"
+  ],
+  [
+    "repo_2D-Game",
+    "2D Game: so_long"
+  ],
+  [
+    "repo_2D-Game",
+    "Overview"
+  ],
+  [
+    "repo_2D-Game",
+    "so_long is a basic 2D game with MLX42 library. Goal is to collect all collectibles and reach the exit while avoiding obstacles..."
+  ],
+  [
+    "repo_2D-Game",
+    "[full text from 2D-Game README]"
+  ],
+  [
+    "repo_ADC-Analog-Digital-Converter",
+    "ADC Analog-Digital Converter"
+  ],
+  [
+    "repo_ADC-Analog-Digital-Converter",
+    "A command line program that simulates an Analog-Digital Converter (ADC) by converting analog voltage inputs into digital binary representations based on configurable bit resolution and voltage reference ranges..."
+  ],
+  [
+    "repo_ADC-Analog-Digital-Converter",
+    "[full text from ADC README]"
+  ],
+  [
+    "repo_chess-ai-classifier",
+    "Chess Piece Classifier"
+  ],
+  [
+    "repo_chess-ai-classifier",
+    "A deep learning model for classifying chess pieces using computer vision, built with FastAI and ConvNeXt Tiny architecture..."
+  ],
+  [
+    "repo_chess-ai-classifier",
+    "[full text from chess-ai-classifier README]"
+  ]
+]
