@@ -2,10 +2,8 @@ import spacy
 from pathlib import Path
 from utils.utils import clean_text
 
-
 # Initialize a spaCy language model for natural language processing (NLP)
 nlp = spacy.load("en_core_web_sm")
-
 
 def preprocess_text(file_path: str) -> dict:
     """Read and preprocess a text file, extracting tokens and entities."""

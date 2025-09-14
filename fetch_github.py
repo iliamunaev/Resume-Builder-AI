@@ -1,6 +1,7 @@
 import requests
 import spacy
 import base64
+from utils.utils import clean_text
 from config import GITHUB_TOKEN, GITHUB_USERNAME
 
 # Load spaCy model
@@ -36,27 +37,24 @@ def fetch_github_data(username: str, token: str) -> dict:
 
     return github_data
 
+def spacy_tokens_and_ents(text: str) -> dict:
+    """Clean -> nlp -> tokens/entities."""
+    cleaned = clean_text(text or "")
+    doc = nlp(cleaned if cleaned.strip() else "no content")
+    tokens = [t.lemma_.lower() for t in doc if not t.is_punct and not t.is_stop]
+    ents = [(e.text, e.label_) for e in doc.ents]
+    return {"tokens": tokens, "entities": ents}
+
 def preprocess_github_data(github_data: dict) -> dict:
     """Preprocess GitHub profile and repo READMEs with spaCy."""
-    processed_data = {"username": github_data["username"], "repos": []}
+    out = {"username": github_data["username"], "repos": []}
+    out["profile"] = spacy_tokens_and_ents(github_data.get("profile", ""))
 
-    # Process profile bio
-    profile_doc = nlp(github_data["profile"] or "No bio provided")
-    processed_data["profile"] = {
-        "tokens": [token.text.lower() for token in profile_doc if not token.is_punct and not token.is_stop],
-        "entities": [(ent.text, ent.label_) for ent in profile_doc.ents]
-    }
-
-    # Process repo READMEs
-    for repo in github_data["repos"]:
-        readme_doc = nlp(repo["readme"] or "No README content")
-        processed_data["repos"].append({
-            "name": repo["name"],
-            "tokens": [token.text.lower() for token in readme_doc if not token.is_punct and not token.is_stop],
-            "entities": [(ent.text, ent.label_) for ent in readme_doc.ents]
-        })
-
-    return processed_data
+    for repo in github_data.get("repos", []):
+        repo_out = spacy_tokens_and_ents(repo.get("readme", ""))
+        repo_out["name"] = repo.get("name", "")
+        out["repos"].append(repo_out)
+    return out
 
 def main():
     # Fetch and preprocess GitHub data
