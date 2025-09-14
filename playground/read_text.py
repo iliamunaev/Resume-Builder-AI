@@ -13,7 +13,7 @@ def clean_text(text: str) -> str:
 def read_file(file_path: str) -> str:
     """Read and preprocess a text file, extracting tokens and entities."""
     # Read file
-    text = Path(file_path).read_text(encoding="utf-8").strip()
+    text = Path(file_path).read_text(encoding="utf-8")
 
     cleaned = clean_text(text)
 

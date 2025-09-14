@@ -1,5 +1,5 @@
 import unittest
-import re
+from utils.utils import clean_text
 
 input = """
                  Software Developer
@@ -8,15 +8,6 @@ input = """
 """
 
 expected = "Software Developer Strong Python skills and solid understanding of data structures and algorithms"
-
-def clean_text(text: str) -> str:
-    # Remove punctuation and non-letters, keep only letters + spaces
-    cleaned = re.sub(r"[^A-Za-z\s]", "", text)
-
-    # Normalize multiple spaces
-    cleaned = re.sub(r"\s+", " ", cleaned).strip()
-
-    return cleaned
 
 class TestCleanTest(unittest.TestCase):
 

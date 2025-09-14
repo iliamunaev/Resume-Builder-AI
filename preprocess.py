@@ -1,24 +1,18 @@
-import re
 import spacy
 from pathlib import Path
+from utils.utils import clean_text
+
 
 # Initialize a spaCy language model for natural language processing (NLP)
 nlp = spacy.load("en_core_web_sm")
 
-def clean_text(text: str) -> str:
-    # Remove punctuation and non-letters, keep only letters + spaces
-    cleaned = re.sub(r"[^A-Za-z\s]", "", text)
-
-    # Normalize multiple spaces
-    cleaned = re.sub(r"\s+", " ", cleaned).strip()
-
-    return cleaned
 
 def preprocess_text(file_path: str) -> dict:
     """Read and preprocess a text file, extracting tokens and entities."""
     # Read file
-    raw_text = Path(file_path).read_text(encoding="utf-8").strip()
+    raw_text = Path(file_path).read_text(encoding="utf-8")
 
+    # Clean raw text, return only words, letters
     text = clean_text(raw_text)
 
     # Process with spaCy
@@ -47,15 +41,15 @@ def main():
     user_data = preprocess_text(user_bio_path)
 
     # Print results
-    print("****** Vacancy Preprocessing: ******")
+    print("****** Vacancy Preprocessing: ******\n")
     print(f"Tokens: {vacancy_data['tokens']}")
     print(f"Entities: {vacancy_data['entities']}")
 
-    print("\n****** User Bio Preprocessing: ******")
+    print("\n****** User Bio Preprocessing: ******\n")
     print(f"Tokens: {user_data['tokens']}")
     print(f"Entities: {user_data['entities']}")
 
-    print("\nPreprocessing successful!")
+    print("\n****** Preprocessing successful! ******")
 
 if __name__ == "__main__":
     main()
