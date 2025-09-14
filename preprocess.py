@@ -35,11 +35,11 @@ def main():
     user_data = preprocess_text(user_bio_path)
 
     # Print results
-    print("Vacancy Preprocessing:")
+    print("****** Vacancy Preprocessing: ******")
     print(f"Tokens: {vacancy_data['tokens']}")
     print(f"Entities: {vacancy_data['entities']}")
 
-    print("User Bio Preprocessing:")
+    print("\n****** User Bio Preprocessing: ******")
     print(f"Tokens: {user_data['tokens']}")
     print(f"Entities: {user_data['entities']}")
 

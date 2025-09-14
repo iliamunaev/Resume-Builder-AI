@@ -1,57 +1,9 @@
-John Doe | Software Developer Trainee
-Python | C/C++ | Go | Generative AI | Agentic AI
-+777 00 00 00 | johndoe@gmail.com
-LinkedIn: linkedin.com/in/johndoe | GitHub: github.com/johndoe
-Location: Helsinki, Finland
+John Doe Software Developer Trainee
+Python C/C++ Go Generative AI Agentic AI
+johndoe@gmail.com
+Helsinki, Finland
 
-SKILLS
-•	Programming: Python (FastAPI), C/C++, Go (idiomatic, microservices).
-•	AI/LLMs: Prompt Design, RAG, Deep Learning
-•	DevOps: Docker, Kubernetes, Git, Linux, Shell Scripting.
-•	Databases: Chroma DB vector, PostgreSQL, Redis cash.
-•	Soft Skills: Agile (Scrum), Multicultural Teamwork, Ownership.
-
-EDUCATION
-Hive Helsinki (School 42) coding school, 2024 – present
-Highly intensive, project-based program emphasizing peer-to-peer learning, problem-solving, and teamwork. System engineering, algorithms, data structures, memory management.
-Skills:  C/C++, Docker, Linux, Git
-
-University of Helsinki, DevOps with Docker (3 ECTS cr.), 2024
-Containerization with Docker and Kubernetes
-Skills: DevOps, Docker, K8s
-IBM Generative AI Engineering Professional Certificate, 2025 – Present
-Prompt design, function/tool calling, and RAG workflows.
-Skills: Generative AI, LLMs., LangChain, PyTorch, RAGs
-
-AI Agent Developer Specialization, Vanderbilt University, 2025 – Present
-Emphasis on AI agent development and workflows.
-Skills: AI Agents, LLMs.
-
-Practical Deep Learning, fastai, 2025 – Present
-Deep hands-on learning with Python, FastAi and PyTorch
-Skills: Deep Learning, Python.
-
-IBM Data Engineering Specialization, 2023, 200 hours
-Hands-on experience in Extract, Transform, Load (ETL), data cleansing, and database management.
-Skills: Python, SQL, PostgreSQL, Databases.
-
-Master of Law, Saratov Law University, Russia
-EXPERIENCE
-Software Developer, self-employed, August 2024 – Present, Helsinki, Finland
-•	Currently focusing on building AI-driven solutions with AI
-•	Designing and deploying prototypes, web apps, and microservices
-Skills: Python, Go, AI
-Software Developer (Python), Live Charge, October 2023 – July 2024, Cyprus (Remote)
-Live Charge provides a technology-driven solution aimed at enhancing the electric vehicle (EV) charging experience for service providers, equipment manufacturers and EV owners.
-•	Developed RESTful APIs using Python and FastAPI, enhancing platform functionality
-•	Optimized SQL queries in PostgreSQL, by utilizing indexes
-•	Teamwork according to Agile (Scrum), Jira as a task tracker
-Skills: Python, SQL, databases, unit testing, Git
-Deck officer / Seaman, ESL Shipping Ltd., October 2020 – September 2024, Finland
-•	Responsible for cargo ship navigation, cargo operations management, and vessel maintenance.
-•	Shift work (1 month onboard – 1 month at home) allowed me to study software development and work part time in Tech in parallel.
-Skills: multicultural teamwork
-LANGUAGES
-•	English, full professional proficiency
-•	Finnish, limited working proficiency
-•	Russian, native
+Programming Python (FastAPI), C/C++, Go (idiomatic, microservices).
+AI/LLMs Prompt Design, RAG, Deep Learning
+DevOps Docker, Kubernetes, Git, Linux, Shell Scripting.
+Databases Chroma DB vector, PostgreSQL, Redis cash.
