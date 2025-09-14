@@ -1,0 +1,32 @@
+Software Developer Trainee
+About This Opportunity
+
+Join Ericsson’s Distributed Cloud team as a Software Developer Trainee and help build the Cloud Container Distribution that powers 5G Core and Cloud RAN. You’ll be contributing to real product features, with a strong focus on AI/LLM agentic workflows integrated into a modern cloud-native stack. You’ll also get hands-on exposure to Kubernetes and cloud networking in a production-grade environment.
+
+What You Will Do
+
+ Explore and apply agentic workflows (LLM-powered assistants and automations) to optimize engineering processes and improving customer experience e.g., faster troubleshooting, better onboarding, configuration management and smarter documentation use etc.
+ Work with Kubernetes as a platform: help build, configure, and operate services that run in clusters.
+ Support networking aspects of cloud platforms (service connectivity, traffic policies, and reliability)
+ Collaborate in a cross-functional environment: participate in planning, pair programming, reviews, and demos; write clear documentation.
+ Evaluate your solutions for usability, maintainability, security, and impact; and iterate based on feedback.
+
+Join our Team
+
+Basic Qualifications
+
+ Enrolled in a BS/MS program in CS/EE/CE (or related).
+ Strong Python skills and solid understanding of data structures and algorithms.
+ Experience with Kubernetes or cloud-native observability (Prometheus/Grafana, tracing, log pipelines).
+ Familiarity with LLMs/AI concepts: prompt design, function/tool calling, RAG basics, evaluation.
+ Working knowledge of Linux and containers; ability to read logs and troubleshoot systems.
+ Understanding of networking fundamentals.
+ Clear communication, curiosity, and a bias for hands-on experimentation.
+
+Bonus points
+
+ Exposure to agent frameworks (LangChain, LangGraph, CrewAI) or vector databases.
+ Experience in fine tuning LLMs or other ML models.
+ Experience in Kubernetes administration and life-cycle management.
+ Go (Golang) proficiency is a plus.
+ Interest in telecom/5G, CNFs, or large-scale distributed systems.
