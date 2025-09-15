@@ -1,4 +1,5 @@
 import spacy
+import json
 from pathlib import Path
 from utils.utils import clean_text
 
@@ -48,6 +49,9 @@ def main():
     print(f"Entities: {user_data['entities']}")
 
     print("\n****** Preprocessing successful! ******")
+    # print(json.dumps(vacancy_data, indent=4))
+    # print(vacancy_data)
+
 
 if __name__ == "__main__":
     main()

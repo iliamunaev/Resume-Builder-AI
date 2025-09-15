@@ -6,4 +6,4 @@ Helsinki, Finland
 Programming Python (FastAPI), C/C++, Go (idiomatic, microservices).
 AI/LLMs Prompt Design, RAG, Deep Learning
 DevOps Docker, Kubernetes, Git, Linux, Shell Scripting.
-Databases Chroma DB vector, PostgreSQL, Redis cash.
+Databases Chroma DB vector, PostgreSQL, Redis cache.
