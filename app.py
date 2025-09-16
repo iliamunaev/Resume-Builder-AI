@@ -42,7 +42,12 @@ async def match_skills(query_input: QueryInput):
             raise HTTPException(status_code=400, detail="Vacancy text is empty")
 
         # Generate embeddings for vacancy sentences
-        query_embeddings = model.encode(sentences, convert_to_numpy=True, show_progress_bar=False, normalize_embeddings=True).astype("float32")
+        query_embeddings = model.encode(
+            sentences,
+            convert_to_numpy=True,
+            show_progress_bar=False,
+            normalize_embeddings=True
+        ).astype("float32")
 
         # Search for top-5 matches per query sentence
         results = []

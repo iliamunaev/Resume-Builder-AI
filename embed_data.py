@@ -78,7 +78,7 @@ def generate_embeddings(texts: List[str]) -> np.ndarray:
         texts,
         convert_to_numpy=True,
         show_progress_bar=True,
-        normalize_embeddings=True,
+        normalize_embeddings=True
     )
     return embs.astype("float32")
 
@@ -140,9 +140,5 @@ def build_index(input_file: Path):
     demo_query = "Strong Python skills and familiarity with AI/LLM concepts"
     search(demo_query, k=3)
 
-def main():
-    build_index(INPUTS_JSON)
-    return
-
 if __name__ == "__main__":
-    main()
+    build_index(INPUTS_JSON)

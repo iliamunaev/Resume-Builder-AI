@@ -1,9 +1,11 @@
 import json
-import spacy
-from pathlib import Path
-from config import GITHUB_TOKEN, GITHUB_USERNAME
-import requests
 import base64
+import requests
+from pathlib import Path
+
+import spacy
+
+from config import GITHUB_TOKEN, GITHUB_USERNAME
 from utils.utils import clean_text
 
 # Load spaCy model
@@ -32,7 +34,9 @@ def fetch_github_data(username: str, token: str) -> dict:
         readme_url = f"https://api.github.com/repos/{username}/{repo_name}/readme"
         readme_resp = requests.get(readme_url, headers=headers)
         if readme_resp.status_code == 200:
-            readme_content = clean_text(base64.b64decode(readme_resp.json()["content"]).decode("utf-8"))
+            readme_content = clean_text(
+                base64.b64decode(readme_resp.json()["content"]).decode("utf-8")
+            )
             github_data["repos"].append({"name": repo_name, "readme": readme_content})
         else:
             github_data["repos"].append({"name": repo_name, "readme": ""})
