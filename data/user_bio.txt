@@ -1,9 +1,8 @@
-John Doe Software Developer Trainee
+Software Enginner Trainee
 Python C/C++ Go Generative AI Agentic AI
-johndoe@gmail.com
 Helsinki, Finland
 
 Programming Python (FastAPI), C/C++, Go (idiomatic, microservices).
-AI/LLMs Prompt Design, RAG, Deep Learning
+AI/LLMs Prompt Design, RAG, Deep Learning, fine-tuning models
 DevOps Docker, Kubernetes, Git, Linux, Shell Scripting.
 Databases Chroma DB vector, PostgreSQL, Redis cache.

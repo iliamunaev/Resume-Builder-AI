@@ -62,8 +62,8 @@ def preprocess_github_data(github_data: dict) -> dict:
         out["repos"].append(repo_out)
     return out
 
-def generate_inputs():
-    """Generate inputs.json from vacancy.txt, user_bio.txt, and GitHub data."""
+def generate_data():
+    """Generate data.json from vacancy.txt, user_bio.txt, and GitHub data."""
     # Load vacancy and user bio
     vacancy_path = "data/vacancy.txt"
     user_bio_path = "data/user_bio.txt"
@@ -78,28 +78,28 @@ def generate_inputs():
     github_data = fetch_github_data(GITHUB_USERNAME, GITHUB_TOKEN)
 
     # Structure data for JSON
-    inputs = {
+    data = {
         "vacancy": vacancy_text,
         "user_bio": user_bio_text,
         "github_profile": github_data["profile"],
         "github_repos": github_data["repos"]
     }
 
-    # Save to inputs.json
-    output_path = "data/inputs.json"
+    # Save to data.json
+    output_path = "data/data.json"
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(inputs, f, indent=2)
+        json.dump(data, f, indent=2)
 
     # Verify by reading back
     with open(output_path, "r", encoding="utf-8") as f:
         saved_data = json.load(f)
 
-    print("Generated inputs.json:")
+    print("Generated data.json:")
     print(f"Vacancy length: {len(saved_data['vacancy'])} characters")
     print(f"User bio length: {len(saved_data['user_bio'])} characters")
     print(f"GitHub profile: {saved_data['github_profile']}")
     print(f"GitHub repos: {[repo['name'] for repo in saved_data['github_repos']]}")
-    print("\nInputs generation successful!")
+    print("\ndata generation successful!")
 
 if __name__ == "__main__":
-    generate_inputs()
+    generate_data()

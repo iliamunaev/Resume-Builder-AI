@@ -12,7 +12,7 @@ import spacy
 # ----------------------------
 MODEL_NAME = "all-MiniLM-L6-v2"
 DATA_DIR = Path("data")
-INPUTS_JSON = DATA_DIR / "inputs.json"
+DATA_JSON = DATA_DIR / "data.json"
 EMB_NPY = DATA_DIR / "embeddings.npy"
 TEXTS_JSON = DATA_DIR / "texts.json"
 META_JSON = DATA_DIR / "metadata.json"
@@ -44,9 +44,9 @@ def split_into_sentences(text: str) -> List[str]:
 
 
 def collect_texts_and_metadata(data: Dict) -> Tuple[List[str], List[Tuple[str, str]]]:
-    """Flatten inputs into sentences with (source, sentence) metadata."""
+    """Flatten data into sentences with (source, sentence) metadata."""
     pairs: List[Tuple[str, str]] = []
-    for key in ("vacancy", "user_bio", "github_profile"):
+    for key in ("user_bio", "github_profile"):
         for s in split_into_sentences(data.get(key, "")):
             pairs.append((key, s))
 
@@ -125,20 +125,23 @@ def search(query: str, k: int = 3):
         print(f"Score: {score:.4f} | Source: {src} | Text: {sent}\n")
 
 
-def build_index(input_file: Path):
+def embed_and_index_data(input_file: Path):
     data = load_input_data(input_file)
     texts, metadata = collect_texts_and_metadata(data)
     if not texts:
         print("No texts found to embed.")
         return
     embs = generate_embeddings(texts)
+    print(f"Emds shape: {embs.shape}") # test
+    print(f"First 5 numbers of the first embedding:\n{embs[0][:5]}")    # first 10 numbers of the first embedding
+
     index = create_faiss_index_ip(embs)
     save_artifacts(embs, texts, metadata, index)
     print("\nIndexing complete.\n")
 
-    # Small test
-    demo_query = "Strong Python skills and familiarity with AI/LLM concepts"
+    # test
+    demo_query = "Strong Python skills and familiarity with AI/LLM concepts, fine-tuning, Redis datatbase"
     search(demo_query, k=3)
 
 if __name__ == "__main__":
-    build_index(INPUTS_JSON)
+    embed_and_index_data(DATA_JSON)
