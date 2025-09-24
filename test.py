@@ -10,3 +10,19 @@ print("Requests version:", requests.__version__)
 print("Loading spaCy model...")
 nlp = spacy.load("en_core_web_sm")
 print("Environment setup successful! Ready for Resume Builder MVP.")
+
+
+
+
+from huggingface_hub import login
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+MODEL_NAME     = "meta-llama/Llama-3.2-3B-Instruct"
+login("YOUR_HF_TOKEN")
+
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_NAME,
+)
+
+
+

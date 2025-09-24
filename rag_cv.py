@@ -28,7 +28,6 @@ login(token=HF_TOKEN)
 
 # --- Config ---
 MODEL_NAME     = "meta-llama/Llama-3.2-3B-Instruct"
-MODEL_NAME     = "meta-llama/Llama-3.2-3B-Instruct"
 EMBEDDER_NAME  = "sentence-transformers/all-MiniLM-L6-v2"
 TOP_K          = 3
 MAX_NEW_TOKENS = 120
@@ -156,3 +155,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
