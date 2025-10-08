@@ -1,6 +1,7 @@
 import re
+from typing import Optional
 
-def clean_text(text: str) -> str:
+def clean_text(text: Optional[str]) -> str:
     """
     Keep letters, digits, @ . + - _ and whitespace.
     Replace '/' with space. Collapse whitespace.

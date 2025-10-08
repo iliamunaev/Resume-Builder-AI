@@ -2,7 +2,7 @@
 
 An intelligent resume building system that uses Retrieval-Augmented Generation (RAG) to automatically generate tailored CV skills sections based on job requirements and user profile data.
 
-**Note**: This project is currently in development.
+**Note**: This project is POC.
 
 ## Overview
 
@@ -28,6 +28,33 @@ This project leverages AI technologies to create personalized resume content by 
 - **Data Processing**: NumPy, Pandas
 - **API Integration**: GitHub API for repository data
 
+## Architecture
+
+The application follows a clean architecture pattern with clear separation of concerns:
+
+### Configuration Layer (`config.py`)
+
+Centralized configuration management with environment-specific settings and validation.
+
+### Model Layer (`models/`)
+
+- **EmbeddingModel**: Manages sentence transformer models for text embedding
+- **TextGenerationModel**: Handles language model loading and inference
+- **ModelManager**: Coordinates model lifecycle and resource management
+
+### Service Layer (`services/`)
+
+- **RAGService**: Core RAG functionality with semantic search and generation
+- **DataProcessingService**: Unified text preprocessing and data generation
+- **SkillsService**: Skills extraction and formatting logic
+- **DataService**: File operations and data management
+
+### Exception Handling (`exceptions.py`)
+Custom exception hierarchy for consistent error handling across the application.
+
+### API Layer (`app.py`, `app_post.py`)
+RESTful endpoints with proper error handling and response models.
+
 **Note**: This project is currently in development. The core functionality is implemented, but the system is not yet production-ready. Key areas for future development include:
 
 - Comprehensive test coverage
@@ -38,26 +65,35 @@ This project leverages AI technologies to create personalized resume content by 
 
 ## Project Structure
 
-```
+```bash
 Resume-Builder-AI/
-├── app.py                 # Main FastAPI application (semantic matching)
-├── app_post.py           # RAG-powered skills generation API
-├── rag_cv.py            # Core RAG implementation with Llama
-├── rag_cv_test.py       # RAG implementation with Qwen model
-├── embed_and_index_data.py  # Data embedding and indexing pipeline
-├── generate_data.py     # Data generation from various sources
-├── fetch_github.py      # GitHub data fetching utilities
-├── preprocess.py        # Text preprocessing with spaCy
-├── config.py           # Configuration settings
+├── app.py                      # Main FastAPI application (semantic matching)
+├── app_post.py                # RAG-powered skills generation API
+├── rag_cv.py                  # Core RAG implementation (refactored)
+├── rag_cv_test.py            # Alternative RAG implementation with Qwen
+├── embed_and_index_data.py   # Data embedding and indexing pipeline
+├── config.py                 # Centralized configuration management
+├── exceptions.py             # Custom exception classes
+├── models/                   # ML model management
+│   ├── __init__.py
+│   ├── embeddings.py         # Embedding model wrapper
+│   ├── generation.py         # Text generation model wrapper
+│   └── manager.py            # Model lifecycle management
+├── services/                 # Business logic services
+│   ├── __init__.py
+│   ├── rag_service.py        # RAG operations service
+│   ├── data_service.py       # Data file operations
+│   ├── skills_service.py     # Skills processing service
+│   └── data_processing_service.py  # Unified data processing
 ├── utils/
-│   └── utils.py        # Text cleaning utilities
-├── data/               # Data storage directory
-│   ├── data.json       # Processed user and job data
-│   ├── embeddings.npy  # Generated embeddings
-│   ├── faiss.index     # FAISS vector index
-│   ├── texts.json      # Text corpus
-│   └── metadata.json   # Metadata for retrieved texts
-└── tests/              # Test suite
+│   └── utils.py              # Text cleaning utilities
+├── data/                     # Data storage directory
+│   ├── data.json             # Processed user and job data
+│   ├── embeddings.npy        # Generated embeddings
+│   ├── faiss.index           # FAISS vector index
+│   ├── texts.json            # Text corpus
+│   └── metadata.json         # Metadata for retrieved texts
+└── tests/                    # Test suite
     └── test_clean_text.py
 ```
 
@@ -72,40 +108,48 @@ Resume-Builder-AI/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd Resume-Builder-AI
    ```
 
 2. **Create virtual environment**
+
    ```bash
    python -m venv venv
    source venv/bin/activate
    ```
 
 3. **Install dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Download spaCy model**
+
    ```bash
    python -m spacy download en_core_web_sm
    ```
 
 5. **Set up configuration**
+
    - Update `config.py` with your GitHub token
    - Add your Hugging Face token for model access
 
 ### Usage
 
 1. **Generate and index data**
+
    ```bash
-   python generate_data.py      # Generate data from sources
-   python embed_and_index_data.py  # Create embeddings and FAISS index
+   # Use DataProcessingService to generate data from sources
+   # Then create embeddings and FAISS index
+   python embed_and_index_data.py
    ```
 
 2. **Run the API server**
+
    ```bash
    # For semantic matching
    python app.py
@@ -115,6 +159,7 @@ Resume-Builder-AI/
    ```
 
 3. **Test the system**
+
    ```bash
    python rag_cv_test.py  # Test RAG functionality
    ```
@@ -146,22 +191,13 @@ Resume-Builder-AI/
 
 ## Data Flow
 
-```
+```bash
 Job Requirements → Semantic Search → Relevant Context → LLM Generation → Skills Section
      ↓                    ↓                ↓              ↓
 User Profile + GitHub → Embeddings → FAISS Index → RAG Pipeline
 ```
 
 ## Testing
-
-Run the test suite:
-```bash
-python -m unittest tests/test_clean_text.py
-```
-
-## Current Status
-
-
 
 ## Future Enhancements
 
@@ -173,5 +209,3 @@ python -m unittest tests/test_clean_text.py
 - Real-time skill recommendations
 
 ---
-
-*Built with modern AI technologies for smarter resume building.*
